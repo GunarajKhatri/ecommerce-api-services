@@ -1,0 +1,10 @@
+import { Router } from "express";
+import passport from "passport";
+import todoroutes from "../Routes/todo_routes.js";
+import userroutes from "../Routes/user_routes.js";
+import tokenroutes from "../Routes/refreshtoken.js";
+const router = Router();
+router.use("/todo",passport.authenticate('jwt', { session: false }), todoroutes);
+router.use("/", userroutes);
+router.use("/", tokenroutes);
+export default router;
