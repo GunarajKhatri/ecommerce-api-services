@@ -1,27 +1,32 @@
 import express from "express";
-const app = express();
-import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import routes from "./Routes/index.js";
 import passport from "passport";
-import jwt from "./config/passport.js";
 import cors from "cors";
+import routes from "./Routes/index.js";
+import jwtStrategy from "./config/passport.js";
+import { connectDB } from "./config/db.js";
+import dotenv from "dotenv"; 
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/hello")
-  .then(() => {
-    console.log("DB connection is successfull!");
-  })
-  .catch((error) => console.log(error));
 
+dotenv.config();
+
+const app = express();
+
+// Connect to the database
+connectDB();
+
+// Middleware configuration
+app.use(cors({ origin: "*" }));
 app.use(bodyParser.json());
-app.use(cors({
-  origin: "*"
-}));
+passport.use("jwt", jwtStrategy);
+
+// Routes
 app.use("/api", routes);
-passport.use("jwt", jwt);
 
-
+// Default route
+app.get("/", (req, res) => {
+  res.send("Hello World!!");
+});
 
 // const user=new User({
 //   username:"guna",
@@ -48,16 +53,8 @@ passport.use("jwt", jwt);
 //     // prints "The author is Ian Fleming"
 //   })
 
-
-
-
-
-
-
-app.get("/", (req, res) => {
-  res.send("hello world!!");
-});
-
-app.listen(5001, () => {
-  console.log("Server is running at http://localhost:5001");
+// Start the server
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });

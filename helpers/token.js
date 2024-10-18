@@ -8,7 +8,7 @@ export const GenerateAccessToken=async(id)=>{
     const payload={
         _id,email
     };
-    return jwt.sign(payload,"access secret code",{expiresIn:60});
+    return jwt.sign(payload,process.env.JWT_ACCESS_SECRET,{expiresIn:60});
 }
 export const GenerateRefreshToken=async(id)=>{
     const user=await User.findOne({_id:id});
@@ -16,5 +16,5 @@ export const GenerateRefreshToken=async(id)=>{
     const payload={
         _id,email
     };
-    return jwt.sign(payload,"refresh secret code",{expiresIn:60});
+    return jwt.sign(payload,process.env.JWT_REFRESH_SECRET,{expiresIn:60});
 }
