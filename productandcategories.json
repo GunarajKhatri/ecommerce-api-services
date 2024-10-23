@@ -1,0 +1,84 @@
+[
+    {
+      "name": "Electronics",
+      "description": "Latest gadgets and devices",
+      "products": [
+        {
+          "name": "Smartphone",
+          "description": "A smartphone with a 6.5-inch display and 128GB storage.",
+          "price": 699.99,
+          "stock": 100,
+          "imageUrl": "https://example.com/smartphone.jpg"
+        },
+        {
+          "name": "Wireless Earbuds",
+          "description": "Bluetooth wireless earbuds with noise cancellation.",
+          "price": 149.99,
+          "stock": 200,
+          "imageUrl": "https://example.com/wireless_earbuds.jpg"
+        },
+        {
+          "name": "Smartwatch",
+          "description": "Fitness tracking smartwatch with heart rate monitor.",
+          "price": 199.99,
+          "stock": 150,
+          "imageUrl": "https://example.com/smartwatch.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Home Appliances",
+      "description": "Appliances for modern homes",
+      "products": [
+        {
+          "name": "Refrigerator",
+          "description": "Energy-efficient refrigerator with a 500L capacity.",
+          "price": 899.99,
+          "stock": 50,
+          "imageUrl": "https://example.com/refrigerator.jpg"
+        },
+        {
+          "name": "Microwave Oven",
+          "description": "800W microwave oven with grill function.",
+          "price": 149.99,
+          "stock": 80,
+          "imageUrl": "https://example.com/microwave_oven.jpg"
+        },
+        {
+          "name": "Washing Machine",
+          "description": "Top-load washing machine with 8kg capacity.",
+          "price": 499.99,
+          "stock": 60,
+          "imageUrl": "https://example.com/washing_machine.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "description": "Books across various genres",
+      "products": [
+        {
+          "name": "Science Fiction Novel",
+          "description": "An action-packed science fiction novel set in space.",
+          "price": 19.99,
+          "stock": 300,
+          "imageUrl": "https://example.com/scifi_novel.jpg"
+        },
+        {
+          "name": "Cookbook",
+          "description": "A collection of healthy and delicious recipes.",
+          "price": 29.99,
+          "stock": 100,
+          "imageUrl": "https://example.com/cookbook.jpg"
+        },
+        {
+          "name": "Travel Guide",
+          "description": "A travel guide to exploring the best cities in the world.",
+          "price": 24.99,
+          "stock": 120,
+          "imageUrl": "https://example.com/travel_guide.jpg"
+        }
+      ]
+    }
+  ]
+  

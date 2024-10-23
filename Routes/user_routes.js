@@ -1,8 +1,0 @@
-import { Router } from "express";
-import * as usercontroller from "../controllers/authcontroller.js";
-
-const router=Router();
-router.post("/register",usercontroller.register);
-router.post("/login",usercontroller.login);
-
-export default router

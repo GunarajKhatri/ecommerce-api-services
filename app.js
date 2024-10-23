@@ -5,8 +5,9 @@ import cors from "cors";
 import routes from "./Routes/index.js";
 import jwtStrategy from "./config/passport.js";
 import { connectDB } from "./config/db.js";
-import dotenv from "dotenv"; 
-
+import dotenv from "dotenv";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swaggerConfig.js";
 
 dotenv.config();
 
@@ -23,35 +24,13 @@ passport.use("jwt", jwtStrategy);
 // Routes
 app.use("/api", routes);
 
+// Swagger UI setup
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // Default route
 app.get("/", (req, res) => {
   res.send("Hello World!!");
 });
-
-// const user=new User({
-//   username:"guna",
-//   email:"hello@gmail.com",
-//   password:"1234567"
-// });
-// user.save((error)=>{
-// const todo=new Todo({
-// list:"play volleyball",
-// author:user._id
-// });
-// const todo1=new Todo({
-//   list:"play football",
-//   author:user._id
-//   });
-// todo.save();
-// todo1.save();
-// })
-
-// Todo.find({ author:'634b765760e39cd566ca9106'}).
-//   exec(function (err, todo) {
-//    // if (err) return handleError(err);
-//     console.log(`${todo[0].list} ${todo[1].list}`);
-//     // prints "The author is Ian Fleming"
-//   })
 
 // Start the server
 const PORT = process.env.PORT || 5001;
