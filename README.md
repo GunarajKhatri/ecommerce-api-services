@@ -38,7 +38,6 @@ for role-based access control and a seamless shopping experience. It is intended
 
 - **Security Features**: 
   - JWT-based authentication for secure access to API endpoints.
-  - Passwords are hashed and not exposed in API responses.
 
 - **Documentation**: 
   - Comprehensive API documentation provided via Swagger, detailing all available endpoints and their usage.
