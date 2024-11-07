@@ -65,22 +65,9 @@ cd ecommerce-api-services
 ```
 npm install
 ```
-4. Create a .env file in the root directory and add your environment variables as shown in .env.example:
-```
-# Application Configuration
-PORT=5000  
-
-# JWT Configuration
-JWT_ACCESS_SECRET="access secret code"  # Secret key for generating access tokens
-JWT_REFRESH_SECRET="refresh secret code"  # Secret key for generating refresh tokens
-
-# Local environment MongoDB URI
-MONGODB_URI_LOCAL="mongodb://127.0.0.1:27017/hello"
-
-# Docker environment MongoDB URI (for docker user)
-MONGODB_URI_DOCKER="mongodb://db:27017/hellodocker 
-```
-5. Now start the server:
+4. Create a .env file in the root directory and add your environment variables as shown in .env.example.
+  
+6. Now start the server:
 ```
 npm run dev
 ```
