@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .  # The context is the current directory
+    volumes:
+      - .:/app  # Map the current directory to /app in the container
+      - /app/node_modules  # Prevent overwriting node_modules in the container
+    ports:
+      - "5000:5000"  # Map container port 3000 to localhost port 5000
+    command: npm run dev  # Start with Nodemon
+    environment:
+      - NODE_ENV=docker 
+    env_file:
+      - .env  # Load environment variables from .env file
+    depends_on:
+      - db  # Waits for the db service to be ready before starting
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Expose MongoDB's port
+    volumes:
+      - mongo-data:/data/db  # Persist MongoDB data
+
+volumes:
+  mongo-data:  # Named volume for MongoDB data
