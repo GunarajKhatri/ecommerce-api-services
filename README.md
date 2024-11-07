@@ -67,28 +67,41 @@ npm install
 ```
 4. Create a .env file in the root directory and add your environment variables as shown in .env.example:
 ```
-PORT=5001
-JWT_ACCESS_SECRET="your_access_secret"
-JWT_REFRESH_SECRET="your_refresh_secret"
-MONGODB_URI="mongodb://127.0.0.1:27017/your_database_name"
+# Application Configuration
+PORT=5000  
+
+# JWT Configuration
+JWT_ACCESS_SECRET="access secret code"  # Secret key for generating access tokens
+JWT_REFRESH_SECRET="refresh secret code"  # Secret key for generating refresh tokens
+
+# Local environment MongoDB URI
+MONGODB_URI_LOCAL="mongodb://127.0.0.1:27017/hello"
+
+# Docker environment MongoDB URI (for docker user)
+MONGODB_URI_DOCKER="mongodb://db:27017/hellodocker 
 ```
-5. Before starting server make sure you installed nodemon that automatically restarting the node application when file changes in the directory are detected:
+5. Now start the server:
 ```
-npm install -g nodemon
+npm run dev
 ```
-6. Now start the server:
+## Docker setup
+If you prefer running the application with Docker, follow these steps:
+
+1. Make sure you follow step no.1 and step no.2 from above installation guide and also docker should be installed and running on your machine.
+
+2. Use the following command to build and run your containers:
 ```
-nodemon app.js
+docker-compose up --build
 ```
+3. Once the Docker containers are running, the application will be accessible at http://localhost:5000 (or whatever port you have configured in the docker-compose.yml file).
+
 # Usage
 
 ## API Endpoints
 For API Endpints, visit the url:
 ```
-http://localhost:5001/api-docs
+http://localhost:5000/api-docs
 ```
-if your server port is at 5001.
-
 # Contributing
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
